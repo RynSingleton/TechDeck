@@ -39,6 +39,7 @@ Clone the repository:
 ```bash
 git clone https://github.com/your-username/techdeck.git
 cd techdeck
+```
 Install dependencies:
 bash
 Copy code
