@@ -10,26 +10,22 @@ fetchDataButton.addEventListener('click', () => {
     const technologyId = 'vscodedeck';
     const endpoint = API_URL.replace('{id}', technologyId);
 
-    // Fetch data from the API
-    fetch('https://cc91nvtfe2.execute-api.us-east-1.amazonaws.com/dev/technology/vscodedeck')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`API returned status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Display the response data on the page
-            apiResponseDiv.innerHTML = `
-                <h3>API Response:</h3>
-                <pre>${JSON.stringify(data, null, 2)}</pre>
-            `;
-        })
-        .catch(error => {
-            // Handle and display errors
-            apiResponseDiv.innerHTML = `
-                <h3>Error:</h3>
-                <pre>${error.message}</pre>
-            `;
+    const fetchTechnology = async (id) => {
+      try {
+        const response = await fetch(`https://cc91nvtfe2.execute-api.us-east-1.amazonaws.com/dev/technology/${id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
+
+        if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+
+        const data = await response.json();
+        console.log(data);
+        return data;
+      } catch (err) {
+        console.error("Error fetching technology:", err);
+      }
+    };
 });
