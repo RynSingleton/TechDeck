@@ -1,0 +1,43 @@
+import json
+import boto3
+
+# Initialize AWS clients
+s3 = boto3.client('s3')
+
+def lambda_handler(event, context):
+    try:
+        # Input from API Gateway (e.g., /technology/{id})
+        technology_id = event['pathParameters']['id']
+
+        # Fetch data from S3
+        s3_data = fetch_s3_data(technology_id)
+
+        # Combine both datasets
+        combined_data = {
+            "technology_id": technology_id,
+            "s3_data": s3_data,
+        }
+
+        # Return JSON response
+        return {
+            "statusCode": 200,
+            "body": json.dumps(combined_data)
+        }
+
+    except Exception as e:
+        # Handle errors and return
+        return {
+            "statusCode": 500,
+            "body": json.dumps({"error": str(e)})
+        }
+
+def fetch_s3_data(technology_id):
+    bucket_name = technology_id
+    object_key = f"metadata.txt"  # Adjust file path as needed
+
+    try:
+        response = s3.get_object(Bucket=bucket_name, Key=object_key)
+        data = response['Body'].read().decode('utf-8')
+        return {"text_data": data}
+    except s3.exceptions.NoSuchKey:
+        return {"message": f"No S3 metadata found for ID: {technology_id}"}
