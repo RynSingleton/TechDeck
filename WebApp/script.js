@@ -7,12 +7,11 @@ const apiResponseDiv = document.getElementById('apiResponse');
 
 // Add click event listener to the button
 fetchDataButton.addEventListener('click', () => {
-    // Example: Replace {id} with a specific technology ID
     const technologyId = 'vscodedeck';
     const endpoint = API_URL.replace('{id}', technologyId);
 
     // Fetch data from the API
-    fetch(endpoint)
+    fetch('https://cc91nvtfe2.execute-api.us-east-1.amazonaws.com/dev/technology/vscodedeck')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`API returned status: ${response.status}`);
