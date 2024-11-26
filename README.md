@@ -90,13 +90,16 @@ Copy code
     "text_data": "testdatatest"
   }
 }
-Troubleshooting
+
+### Troubleshooting:
 CORS Issues: If you're encountering CORS-related issues when accessing the API from your frontend, ensure that CORS is correctly configured in API Gateway.
+
 Missing Data: If DynamoDB or S3 data is missing for a specific technology ID, verify that the data exists in the respective service.
-License
+
+### License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Contributing
+### Contributing
 Feel free to fork the repository and submit pull requests. Contributions are welcome!
 
 For any further questions, please reach out or create an issue in the GitHub repository.
