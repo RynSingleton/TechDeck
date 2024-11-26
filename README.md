@@ -34,7 +34,7 @@ Before you begin, ensure that you have the following installed:
 
 ### Frontend Setup
 
-1. Clone the repository:
+Clone the repository:
 
 ```bash
 git clone https://github.com/your-username/techdeck.git
@@ -49,7 +49,7 @@ Copy code
 npm start
 Visit http://localhost:3000 in your browser.
 
-Backend Setup (AWS Lambda & API Gateway)
+### Backend Setup (AWS Lambda & API Gateway)
 Deploy Lambda Function:
 
 Write your Lambda code in the lambda directory.
