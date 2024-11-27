@@ -17,7 +17,7 @@ class TechDeckCdkStack(Stack):
         techLambda = _lambda.Function(self, "jsonTechs",
             runtime=_lambda.Runtime.PYTHON_3_8,
             handler="lambda_function.handler",
-            code=_lambda.Code.from_asset("../Lambdas")
+            code=_lambda.Code.from_asset(os.path.join(os.path.dirname(__file__), "../../Lambdas/jsonTechs"))
         )
 
         # Create an API Gateway to trigger the Lambda
