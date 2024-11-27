@@ -30,7 +30,7 @@ jobs:
 
       - name: Deploy with CDK
         run: |
-          cdk deploy --require-approval never --app "python TechDeckCDK/tech_deck_dck/app.py"  # Specify Python app file
+          cdk deploy --require-approval never --app "python TechDeckCDK/tech_deck_cdk/app.py"  # Specify Python app file
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
