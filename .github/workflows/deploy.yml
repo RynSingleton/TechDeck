@@ -21,7 +21,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r TechDeckCDK/requirements.txt
           pip install aws-cdk-lib constructs  # Ensure AWS CDK Python packages are installed
 
       - name: Install Node.js and AWS CDK CLI
